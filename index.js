@@ -45,7 +45,12 @@ var parser = (function() {
         var res = '';
 
         for (var i = 0; i < data.length; i++) {
-            var s = data[i];
+            // Create object to take only fields of interest
+            var s = {};
+            s.id = data[i].id;
+            s.startTime = data[i].startTime;
+            s.endTime = data[i].endTime;
+            s.text = data[i].text;
 
             if (!isNaN(s.startTime) && !isNaN(s.endTime)) {
                 s.startTime = msTime(parseInt(s.startTime, 10));
